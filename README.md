@@ -1,1 +1,1 @@
-Basic Calculator Project from Odin Projet Foundations
+Basic Calculator Project from Odin Project Foundations
