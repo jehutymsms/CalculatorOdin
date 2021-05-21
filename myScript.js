@@ -65,10 +65,10 @@ document.querySelectorAll('.button').forEach(item => {
     if (parseInt(item.innerHTML) >= 0 && parseInt(item.innerHTML) <= 9){
     item.addEventListener('click', event => {
         if (displayNumber1.length < 12){
-            displayNumber1 += item.innerHTML;
+            displayNumber1 = displayNumber1 + item.innerHTML;
             displayValue(displayNumber1);
         }else{
-            displayValue(displayNumber1);
+            displayValue(displayNumber1)
         }
         
     })}
@@ -83,12 +83,26 @@ deLete.addEventListener('click', event => {
     displayValue(0);
 })
 
+// Dot Function
+dot.addEventListener('click', event => {
+    if (screenDisplay.innerHTML.includes(".") == false){
+        displayNumber1 = screenDisplay.innerHTML + ".";
+        return displayValue(displayNumber1)
+    }else if (screenDisplay.innerHTML.includes(".") == true){
+        return displayValue(screenDisplay.innerHTML)
+    }
+})
+
+
 // Negative Operator Event
 plus_Negative.addEventListener('click', event => {
-    if (screenDisplay.innerHTML.search("-") == -1){
-        screenDisplay.innerHTML =  "-" + screenDisplay.innerHTML;
-    }else{
-        return displayValue(screenDisplay.innerHTML.slice(1));
+    if (screenDisplay.innerHTML.includes("-") == false && screenDisplay.innerHTML != "0"){
+        displayNumber1 =  "-" + screenDisplay.innerHTML;
+        return displayValue(displayNumber1)
+    }else if(screenDisplay.innerHTML == "0"){
+        return displayValue(screenDisplay.innerHTML);
+    }else {
+       return displayValue(screenDisplay.innerHTML.slice(1))
     }
 })
 
