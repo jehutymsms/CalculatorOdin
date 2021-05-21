@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+
+body {
+    text-align: center;
+    position: relative;
+}
+
+h1 {
+    background-color: #B1B5C8;
+    width: 50vh;
+    margin: 10px auto;
+    font-size: 50px;
+    padding: 30px;
+    font-family: 'Abril Fatface', serif;
+    text-shadow:-10px -10px 15px yellow,
+                10px -10px 15px yellow, 
+                10px 10px 15px yellow,
+                -10px 10px 15px yellow,
+                -10px -10px 15px red,
+                10px -10px 15px red,
+                10px 10px 15px red,
+                -10px 10px 15px red;
+    border-radius: 20px;
+}
+
+#calc_container {
+    background-color: black;
+    margin: 50px auto auto auto;
+    width: 50vh;
+    height: 75vh;
+    padding: 5px;
+    border-style: solid;
+    border-radius: 2%;
+    border-width: 5px;
+    box-shadow: 50px 0px 45px #BAA7B0,
+                0px 50px 45px #BAA7B0,
+                -50px 0px 45px #BAA7B0,
+                0px -50px 45px #BAA7B0;
+}
+
+#screen {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: white;
+    background-color: black;
+    font-size: 50px;
+    height: 15%;
+    margin-bottom: 10px;
+    padding-right: 20px;
+    border-radius: 30px;
+    border-style: solid;
+    overflow: hidden;
+}
+#button_container {
+    display: grid;
+    height: 60vh;
+    gap: 5px;
+    padding: 5px;
+    grid-auto-rows: 1fr;
+    grid-auto-columns: 1fr;
+    align-content: center;
+    grid-template-areas: 
+    "delete plus_negative percentage divide"
+    "seven eight nine multi"
+    "four five six subtrac"
+    "one two three ad"
+    "zer zer do equal";
+}
+
+#one { grid-area: one; }
+#two { grid-area: two; }
+#three { grid-area: three; }
+#four { grid-area: four; }
+#five { grid-area: five; }
+#six { grid-area: six; }
+#seven { grid-area: seven; }
+#eight { grid-area: eight; }
+#nine { grid-area: nine; }
+#zero { grid-area: zer; }
+#divide { grid-area: divide; }
+#multiply { grid-area: multi; }
+#add { grid-area: ad; }
+#subtract { grid-area: subtrac; }
+#equal { grid-area: equal; }
+#plus_negative { grid-area: plus_negative; }
+#dot { grid-area: do; }
+#percentage { grid-area: percentage; }
+#delete { grid-area: delete; }
+
+#one, #two, #three, #four, #five, #six, #seven, #eight, #nine, #dot{
+    height: 80px;
+    width: 80px;
+    color: black;
+    background-color: #1fbfb8;
+    border-radius: 50%;
+    margin: auto;
+}
+
+#delete, #plus_negative, #percentage{
+    color:black;
+    background-color: #1978a5;
+    border-radius: 50%;
+    border-style: solid;
+    margin: auto;
+}
+#subtract, #add, #multiply, #divide, #equal{
+    color: white;
+    background-color: #05716c;
+    border-style: solid;
+    border-radius: 50%;
+    margin: auto;
+}
+
+#zero {
+    color: black;
+    background-color: #1fbfb8;
+    border-radius: 40px;
+}
+
+.button {
+    font-size: 30px;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+
+#button_container .button:hover {
+    background-color: white;
+    color: black;
+}
