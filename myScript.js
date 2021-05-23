@@ -51,14 +51,19 @@ const operate = (operator, x, y) => {
     }
 }
 
+// Displaying Values so they fix on Screen with proper Notation
 const displayValue = (x) => {
-    if (screenDisplay.innerHTML.length < 11){
+    if (x.toString().length < 12 && x.toString().includes(".") == false){
         screenDisplay.innerHTML = x;
+    }else if (x.toString().length >= 12 && x.toString().includes(".") == true) {
+        screenDisplay.innerHTML = Number(x).toFixed(9);
+    }else if (x.toString().length > 12 && x.toString().includes(".") == false){
+        screenDisplay.innerHTML = Number(x).toExponential(2);
     }else{
-        screenDisplay.innerHTML = "NaN"
+        screenDisplay.innerHTML = x;
     }
-    
 }
+
 
 // Display Numbers when pressed
 document.querySelectorAll('.button').forEach(item => {
@@ -70,7 +75,6 @@ document.querySelectorAll('.button').forEach(item => {
         }else{
             displayValue(displayNumber1)
         }
-        
     })}
   })
   
@@ -85,11 +89,14 @@ deLete.addEventListener('click', event => {
 
 // Dot Function
 dot.addEventListener('click', event => {
-    if (screenDisplay.innerHTML.includes(".") == false){
+    if (screenDisplay.innerHTML.includes(".") == false && selOperator == ""){
         displayNumber1 = screenDisplay.innerHTML + ".";
         return displayValue(displayNumber1)
-    }else if (screenDisplay.innerHTML.includes(".") == true){
-        return displayValue(screenDisplay.innerHTML)
+    }else if (screenDisplay.innerHTML.includes(".") == true && displayNumber1 != ""){
+        return displayValue(screenDisplay.innerHTML);
+    }else if (screenDisplay.innerHTML != ""){
+        displayNumber1 =  displayNumber1 + "0.";
+        displayValue(displayNumber1);
     }
 })
 
@@ -208,4 +215,3 @@ eQual.addEventListener('click', event => {
     }
     
 })
-
