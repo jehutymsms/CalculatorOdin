@@ -1,6 +1,6 @@
 // Varible Storage
 let displayNumber1 = ""
-let displayNumber2 = ""
+let memory = ""
 let selOperator = ""
 let result = undefined
 const screenDisplay = document.getElementById("screen")
@@ -25,25 +25,25 @@ const operate = (operator, x, y) => {
         case "add":
             result= add(x, y);
             displayNumber1 = "";
-            displayNumber2 = "";
+            memory = "";
             selOperator = "";
             break
         case "subtract":
             result= subtract(x, y);
             displayNumber1 = "";
-            displayNumber2 = "";
+            memory = "";
             selOperator = "";
             break
         case "multiply":
             result= multiply(x, y);
             displayNumber1 = "";
-            displayNumber2 = "";
+            memory = "";
             selOperator = "";
             break
         case "divide":
             result= divide(x, y);
             displayNumber1 = "";
-            displayNumber2 = "";
+            memory = "";
             selOperator = "";
             break
         default:
@@ -81,7 +81,7 @@ document.querySelectorAll('.button').forEach(item => {
 // A/C Button Function to clear display
 deLete.addEventListener('click', event => {
     displayNumber1 = "";
-    displayNumber2 = "";
+    memory = "";
     selOperator = "";
     result = undefined;
     displayValue(0);
@@ -115,20 +115,20 @@ plus_Negative.addEventListener('click', event => {
 
 // Divide Operator Event
 diVide.addEventListener('click', event => {
-    if (result == undefined && displayNumber2 == "" ){
-        displayNumber2 = screenDisplay.innerHTML;
+    if (result == undefined && memory == "" ){
+        memory = screenDisplay.innerHTML;
         displayNumber1 = "";
         selOperator = "divide"
-    }else if (result != undefined && displayNumber2 == "") {
-        displayNumber2 = result;
+    }else if (result != undefined && memory == "") {
+        memory = result;
         result = undefined;
         selOperator = "divide";
-        displayValue(displayNumber2);
-    }else if(displayNumber2 != "" && displayNumber1 != ""){
-        operate(selOperator, Number(displayNumber2), Number(displayNumber1));
+        displayValue(memory);
+    }else if(memory != "" && displayNumber1 != ""){
+        operate(selOperator, Number(memory), Number(displayNumber1));
         displayValue(result);
         selOperator = "divide";
-        displayNumber2 = result;
+        memory = result;
         result = undefined;
     }else{
         displayValue(displayNumber1)
@@ -138,20 +138,20 @@ diVide.addEventListener('click', event => {
 
 // Multiply Operator Event
 mulTiply.addEventListener('click', event => {
-    if (result == undefined && displayNumber2 == "" ){
-        displayNumber2 = screenDisplay.innerHTML;
+    if (result == undefined && memory == "" ){
+        memory = screenDisplay.innerHTML;
         displayNumber1 = "";
         selOperator = "multiply"
-    }else if (result != undefined && displayNumber2 == "") {
-        displayNumber2 = result;
+    }else if (result != undefined && memory == "") {
+        memory = result;
         result = undefined;
         selOperator = "multiply";
-        displayValue(displayNumber2);
-    }else if(displayNumber2 != "" && displayNumber1 != ""){
-        operate(selOperator, Number(displayNumber2), Number(displayNumber1));
+        displayValue(memory);
+    }else if(memory != "" && displayNumber1 != ""){
+        operate(selOperator, Number(memory), Number(displayNumber1));
         displayValue(result);
         selOperator = "multiply";
-        displayNumber2 = result;
+        memory = result;
         result = undefined;
     }else{
         displayValue(displayNumber1)
@@ -161,20 +161,20 @@ mulTiply.addEventListener('click', event => {
 
 // Subtract Operator Event
 subTract.addEventListener('click', event => {
-    if (result == undefined && displayNumber2 == "" ){
-        displayNumber2 = screenDisplay.innerHTML;
+    if (result == undefined && memory == "" ){
+        memory = screenDisplay.innerHTML;
         displayNumber1 = "";
         selOperator = "subtract"
-    }else if (result != undefined && displayNumber2 == "") {
-        displayNumber2 = result;
+    }else if (result != undefined && memory == "") {
+        memory = result;
         result = undefined;
         selOperator = "subtract";
-        displayValue(displayNumber2);
-    }else if(displayNumber2 != "" && displayNumber1 != ""){
-        operate(selOperator, Number(displayNumber2), Number(displayNumber1));
+        displayValue(memory);
+    }else if(memory != "" && displayNumber1 != ""){
+        operate(selOperator, Number(memory), Number(displayNumber1));
         displayValue(result);
         selOperator = "subtract";
-        displayNumber2 = result;
+        memory = result;
         result = undefined;
     }else{
         displayValue(displayNumber1)
@@ -184,20 +184,20 @@ subTract.addEventListener('click', event => {
 
 // Add Operator Event
 aDd.addEventListener('click', event => {
-    if (result == undefined && displayNumber2 == "" ){
-        displayNumber2 = screenDisplay.innerHTML;
+    if (result == undefined && memory == "" ){
+        memory = screenDisplay.innerHTML;
         displayNumber1 = "";
         selOperator = "add"
-    }else if (result != undefined && displayNumber2 == "") {
-        displayNumber2 = result;
+    }else if (result != undefined && memory == "") {
+        memory = result;
         result = undefined;
         selOperator = "add";
-        displayValue(displayNumber2);
-    }else if(displayNumber2 != "" && displayNumber1 != ""){
-        operate(selOperator, Number(displayNumber2), Number(displayNumber1));
+        displayValue(memory);
+    }else if(memory != "" && displayNumber1 != ""){
+        operate(selOperator, Number(memory), Number(displayNumber1));
         displayValue(result);
         selOperator = "add";
-        displayNumber2 = result;
+        memory = result;
         result = undefined;
     }else{
         displayValue(displayNumber1)
@@ -207,8 +207,8 @@ aDd.addEventListener('click', event => {
 
 // Equal Operator Event
 eQual.addEventListener('click', event => {
-    if (result == undefined && displayNumber2 != ""){
-        operate(selOperator, Number(displayNumber2), Number(displayNumber1))
+    if (result == undefined && memory != ""){
+        operate(selOperator, Number(memory), Number(displayNumber1))
         displayValue(result);
     }else{
         displayValue(screenDisplay.innerHTML);
