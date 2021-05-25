@@ -95,7 +95,7 @@ dot.addEventListener('click', event => {
     }else if (screenDisplay.innerHTML.includes(".") == true && displayNumber1 != ""){
         return displayValue(screenDisplay.innerHTML);
     }else if (screenDisplay.innerHTML != ""){
-        displayNumber1 =  displayNumber1 + "0.";
+        displayNumber1 =  displayNumber1 + ".";
         displayValue(displayNumber1);
     }
 })
